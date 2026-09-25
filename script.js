@@ -1,31 +1,29 @@
-
+```javascript
 const rooms = [
   "Living room",
   "Kitchen",
-  "Children bed room 1",
-  "Children bed room 2",
-  "Guest bathroom",
-  "Parents bed room",
-  "Children bathroom",
-  "Work room",
-  "Parents bathroom"
+  "Children rooms",
+  "Parents suite",
+  "Bathrooms",
+  "Home office"
 ];
 
 const correctAnswers = {
   A: "Living room",
   B: "Kitchen",
-  C: "Children bed room 1",
-  D: "Children bed room 2",
-  E: "Parents bed room",
-  F: "Parents bathroom",
-  G: "Children bathroom",
-  H: "Work room",
-  I: "Guest bathroom"
+  C: "Children rooms",
+  D: "Children rooms",
+  E: "Parents suite",
+  F: "Bathrooms",
+  G: "Bathrooms",
+  H: "Home office",
+  I: "Bathrooms"
 };
 
 const answers = document.getElementById("answers");
 
 Object.keys(correctAnswers).forEach(letter => {
+
   const row = document.createElement("div");
   row.className = "answer-row";
 
@@ -38,47 +36,49 @@ Object.keys(correctAnswers).forEach(letter => {
   select.name = letter;
   select.required = true;
 
-  // Placeholder
   const placeholder = document.createElement("option");
   placeholder.value = "";
-  placeholder.textContent = "Choose a room...";
+  placeholder.textContent = "Choose an area...";
   placeholder.disabled = true;
   placeholder.selected = true;
+
   select.appendChild(placeholder);
 
-  // Create a NEW shuffled list for each question
-  const shuffledRooms = [...rooms];
+  rooms.forEach(room => {
 
-  for (let i = shuffledRooms.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffledRooms[i], shuffledRooms[j]] = [shuffledRooms[j], shuffledRooms[i]];
-  }
-
-  // Add the shuffled choices
-  shuffledRooms.forEach(room => {
     const option = document.createElement("option");
+
     option.value = room;
     option.textContent = room;
+
     select.appendChild(option);
+
   });
 
   row.appendChild(label);
   row.appendChild(select);
+
   answers.appendChild(row);
 });
 
+
 document.getElementById("answerForm").addEventListener("submit", event => {
+
   event.preventDefault();
 
   let score = 0;
+
   const total = Object.keys(correctAnswers).length;
 
   Object.entries(correctAnswers).forEach(([letter, answer]) => {
-    const value = document.getElementById(`answer-${letter}`).value;
+
+    const value =
+      document.getElementById(`answer-${letter}`).value;
 
     if (value === answer) {
       score++;
     }
+
   });
 
   const result = document.getElementById("result");
@@ -89,8 +89,8 @@ document.getElementById("answerForm").addEventListener("submit", event => {
     <strong>Your score: ${score}/${total}</strong><br>
     ${
       score === total
-        ? "Excellent! You identified all the rooms correctly."
-        : "Check the floor plan and try again."
+        ? "Excellent! You identified all the areas correctly."
+        : "Check your answers and try again."
     }
   `;
 
@@ -98,46 +98,19 @@ document.getElementById("answerForm").addEventListener("submit", event => {
     behavior: "smooth",
     block: "center"
   });
+
 });
 
+
 document.getElementById("resetBtn").addEventListener("click", () => {
+
   Object.keys(correctAnswers).forEach(letter => {
+
     document.getElementById(`answer-${letter}`).selectedIndex = 0;
+
   });
 
   document.getElementById("result").hidden = true;
+
 });
-
-
-// Hide a room from other dropdowns when it is selected
-const allSelects = document.querySelectorAll("#answers select");
-
-allSelects.forEach(select => {
-  select.addEventListener("change", () => {
-    const selectedRooms = new Set();
-
-    // Collect all currently selected rooms
-    allSelects.forEach(s => {
-      if (s.value !== "") {
-        selectedRooms.add(s.value);
-      }
-    });
-
-    // Update every dropdown
-    allSelects.forEach(s => {
-      Array.from(s.options).forEach(option => {
-        if (option.value === "") return;
-
-        // Keep the option visible in the dropdown where it is currently selected
-        if (option.value === s.value) {
-          option.hidden = false;
-        } else {
-          option.hidden = selectedRooms.has(option.value);
-        }
-      });
-    });
-  });
-});
-```
-
 ```
