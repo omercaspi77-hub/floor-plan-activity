@@ -1,3 +1,4 @@
+```css
 * {
   box-sizing: border-box;
 }
@@ -7,136 +8,101 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background: #f5f5f5;
   color: #111;
+  font-size: 14px;
 }
 
 .page {
-  width: min(1100px, 94%);
-  margin: 32px auto 60px;
+  width: 94%;
+  max-width: 600px;
+  margin: 16px auto 30px;
 }
 
 header {
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 16px;
 }
 
 h1 {
-  font-size: clamp(28px, 5vw, 46px);
-  margin: 0 0 10px;
+  font-size: 26px;
+  line-height: 1.15;
+  margin: 0 0 7px;
 }
 
 h2 {
-  margin-top: 0;
-  font-size: 24px;
+  margin: 0 0 12px;
+  font-size: 19px;
 }
 
 header p {
-  font-size: 17px;
+  font-size: 14px;
+  line-height: 1.4;
   margin: 0;
 }
 
 .card {
   background: white;
-  border: 2px solid #111;
-  border-radius: 12px;
-  padding: 24px;
-  margin: 20px 0;
+  border: 1.5px solid #111;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 12px 0;
 }
 
-.floor-plan-wrap {
-  width: 100%;
-  overflow-x: auto;
-  border: 1px solid #aaa;
-  background: white;
-}
-
-svg {
-  display: block;
-  width: 100%;
-  min-width: 760px;
-  height: auto;
-}
-
-.outer,
-.room {
-  fill: white;
-  stroke: #111;
-  stroke-width: 4;
-}
-
-.window {
-  stroke: white;
-  stroke-width: 12;
-}
-
-.room {
-  stroke-width: 3;
-}
-
-.letter {
-  font-size: 52px;
-  font-weight: 700;
-  text-anchor: middle;
-}
-
-.hint {
-  font-size: 16px;
-  text-anchor: middle;
-  fill: #555;
-}
-
-.small-note {
-  font-size: 18px;
-  text-anchor: middle;
-  fill: #777;
-}
+/* Room bank */
 
 .room-bank {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px 28px;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 12px;
 }
 
 .room-bank span {
   border-bottom: 1px solid #aaa;
-  padding: 8px 4px;
+  padding: 6px 2px;
+  font-size: 13px;
+  line-height: 1.25;
 }
+
+/* Answers */
 
 #answers {
   display: grid;
-  gap: 14px;
-  margin-bottom: 22px;
+  gap: 9px;
+  margin-bottom: 15px;
 }
 
 .answer-row {
   display: grid;
-  grid-template-columns: 38px 1fr;
+  grid-template-columns: 25px 1fr;
   align-items: center;
-  gap: 10px;
+  gap: 7px;
 }
 
 .answer-row label {
   font-weight: 700;
-  font-size: 19px;
+  font-size: 16px;
 }
 
 .answer-row select {
   width: 100%;
-  padding: 11px;
-  border: 1.5px solid #222;
-  border-radius: 6px;
+  min-width: 0;
+  padding: 8px;
+  border: 1px solid #222;
+  border-radius: 5px;
   background: white;
-  font-size: 16px;
+  font-size: 14px;
 }
 
+/* Buttons */
+
 button {
-  border: 2px solid #111;
+  border: 1.5px solid #111;
   background: #111;
   color: white;
-  padding: 11px 18px;
-  border-radius: 6px;
-  font-size: 16px;
+  padding: 9px 14px;
+  border-radius: 5px;
+  font-size: 14px;
   cursor: pointer;
-  margin-right: 8px;
+  margin-right: 5px;
 }
 
 button:hover {
@@ -148,36 +114,74 @@ button.secondary {
   color: #111;
 }
 
+/* Results */
+
 .result {
-  margin-top: 20px;
-  padding: 18px;
-  border: 2px solid #111;
-  border-radius: 8px;
-  font-size: 18px;
+  margin-top: 14px;
+  padding: 12px;
+  border: 1.5px solid #111;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 1.4;
 }
+
+/* Next activity */
 
 .criteria-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
 }
 
 .criteria-list span {
   border: 1px solid #aaa;
-  padding: 10px;
+  padding: 7px;
+  font-size: 13px;
+  line-height: 1.25;
 }
 
-@media (max-width: 700px) {
-  .card {
-    padding: 17px;
+/* Small phones */
+
+@media (max-width: 400px) {
+  .page {
+    width: 95%;
+    margin-top: 12px;
   }
 
-  .room-bank,
+  .card {
+    padding: 12px;
+    margin: 10px 0;
+  }
+
+  h1 {
+    font-size: 23px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  header p {
+    font-size: 13px;
+  }
+
+  .room-bank {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+
+  .room-bank span {
+    font-size: 13px;
+    padding: 5px 2px;
+  }
+
   .criteria-list {
     grid-template-columns: 1fr;
   }
 
-  .page {
-    width: 96%;
+  button {
+    padding: 8px 12px;
+    font-size: 13px;
   }
 }
+```
