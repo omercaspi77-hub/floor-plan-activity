@@ -1,4 +1,3 @@
-
 const correctAnswers = {
   A: "Living room",
   B: "Kitchen",
@@ -8,16 +7,16 @@ const correctAnswers = {
   H: "Home office"
 };
 
-document.getElementById("answerForm").addEventListener("submit", event => {
+document.getElementById("answerForm").addEventListener("submit", function(event) {
   event.preventDefault();
 
   let score = 0;
   const total = Object.keys(correctAnswers).length;
 
-  Object.entries(correctAnswers).forEach(([id, answer]) => {
-    const value = document.getElementById(`answer-${id}`).value;
+  Object.entries(correctAnswers).forEach(([id, correctAnswer]) => {
+    const selectedAnswer = document.getElementById(`answer-${id}`).value;
 
-    if (value === answer) {
+    if (selectedAnswer === correctAnswer) {
       score++;
     }
   });
@@ -26,14 +25,17 @@ document.getElementById("answerForm").addEventListener("submit", event => {
 
   result.hidden = false;
 
-  result.innerHTML = `
-    <strong>Your score: ${score}/${total}</strong><br>
-    ${
-      score === total
-        ? "Excellent! You identified all the areas correctly."
-        : "Check your answers and try again."
-    }
-  `;
+  if (score === total) {
+    result.innerHTML = `
+      <strong>Your score: ${score}/${total}</strong><br>
+      Excellent! You identified all the areas correctly.
+    `;
+  } else {
+    result.innerHTML = `
+      <strong>Your score: ${score}/${total}</strong><br>
+      Check your answers and try again.
+    `;
+  }
 
   result.scrollIntoView({
     behavior: "smooth",
@@ -41,7 +43,8 @@ document.getElementById("answerForm").addEventListener("submit", event => {
   });
 });
 
-document.getElementById("resetBtn").addEventListener("click", () => {
+
+document.getElementById("resetBtn").addEventListener("click", function() {
 
   Object.keys(correctAnswers).forEach(id => {
     document.getElementById(`answer-${id}`).selectedIndex = 0;
@@ -49,4 +52,3 @@ document.getElementById("resetBtn").addEventListener("click", () => {
 
   document.getElementById("result").hidden = true;
 });
-```
