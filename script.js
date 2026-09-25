@@ -107,4 +107,37 @@ document.getElementById("resetBtn").addEventListener("click", () => {
 
   document.getElementById("result").hidden = true;
 });
+
+
+// Hide a room from other dropdowns when it is selected
+const allSelects = document.querySelectorAll("#answers select");
+
+allSelects.forEach(select => {
+  select.addEventListener("change", () => {
+    const selectedRooms = new Set();
+
+    // Collect all currently selected rooms
+    allSelects.forEach(s => {
+      if (s.value !== "") {
+        selectedRooms.add(s.value);
+      }
+    });
+
+    // Update every dropdown
+    allSelects.forEach(s => {
+      Array.from(s.options).forEach(option => {
+        if (option.value === "") return;
+
+        // Keep the option visible in the dropdown where it is currently selected
+        if (option.value === s.value) {
+          option.hidden = false;
+        } else {
+          option.hidden = selectedRooms.has(option.value);
+        }
+      });
+    });
+  });
+});
+```
+
 ```
