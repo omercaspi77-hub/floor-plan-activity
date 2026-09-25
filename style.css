@@ -1,4 +1,8 @@
 ```css
+/* ================================
+   RESET
+================================ */
+
 * {
   box-sizing: border-box;
 }
@@ -6,153 +10,249 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #f5f5f5;
-  color: #111;
+  background: #f2f4f7;
+  color: #1f2937;
 }
+
+
+/* ================================
+   PAGE
+================================ */
 
 .page {
-  width: 94%;
-  max-width: 600px;
-  margin: 20px auto 35px;
+  width: 92%;
+  max-width: 650px;
+  margin: 35px auto 50px;
 }
 
-/* Header */
+
+/* ================================
+   HEADER
+================================ */
 
 header {
   text-align: center;
-  margin-bottom: 18px;
+  margin-bottom: 25px;
 }
 
-h1 {
-  font-size: 27px;
-  line-height: 1.15;
-  margin: 0 0 8px;
+header h1 {
+  margin: 0 0 10px;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 header p {
-  font-size: 14px;
-  line-height: 1.4;
   margin: 0;
+  font-size: 15px;
+  color: #6b7280;
+  line-height: 1.5;
 }
 
-/* Main card */
+
+/* ================================
+   CARD
+================================ */
 
 .card {
-  background: white;
-  border: 1.5px solid #111;
-  border-radius: 9px;
-  padding: 18px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
 }
 
-h2 {
-  font-size: 20px;
+.card h2 {
   margin: 0 0 8px;
+  font-size: 21px;
+  font-weight: 700;
 }
 
 .instructions {
+  margin: 0 0 22px;
+  color: #6b7280;
   font-size: 14px;
-  line-height: 1.4;
-  margin: 0 0 18px;
-  color: #444;
+  line-height: 1.5;
 }
 
-/* Answer form */
+
+/* ================================
+   ANSWERS
+================================ */
 
 #answers {
-  display: grid;
-  gap: 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .answer-row {
   display: grid;
-  grid-template-columns: 105px 1fr;
+  grid-template-columns: 110px 1fr;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
 .answer-row label {
   font-size: 15px;
-  font-weight: bold;
+  font-weight: 700;
   white-space: nowrap;
 }
+
+
+/* ================================
+   SELECT
+================================ */
 
 .answer-row select {
   width: 100%;
   min-width: 0;
-  padding: 9px 8px;
-  border: 1px solid #222;
-  border-radius: 5px;
-  background: white;
-  color: #111;
+
+  padding: 11px 13px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+
+  background: #ffffff;
+  color: #1f2937;
+
   font-size: 14px;
+
+  outline: none;
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
 }
 
-/* Buttons */
+.answer-row select:hover {
+  border-color: #9ca3af;
+}
+
+.answer-row select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+
+/* ================================
+   BUTTONS
+================================ */
 
 .buttons {
-  margin-top: 18px;
+  display: flex;
+  gap: 9px;
+  margin-top: 22px;
 }
 
 button {
-  border: 1.5px solid #111;
-  background: #111;
-  color: white;
-  padding: 9px 14px;
-  border-radius: 5px;
+  border: none;
+  border-radius: 9px;
+
+  padding: 11px 18px;
+
   font-size: 14px;
+  font-weight: 600;
+
   cursor: pointer;
-  margin-right: 5px;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease;
 }
 
-button:hover {
-  opacity: 0.8;
+button[type="submit"] {
+  background: #2563eb;
+  color: white;
+
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.25);
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 12px rgba(37, 99, 235, 0.3);
 }
 
 button.secondary {
-  background: white;
-  color: #111;
+  background: #f3f4f6;
+  color: #374151;
 }
 
-/* Result */
+button.secondary:hover {
+  background: #e5e7eb;
+}
+
+
+/* ================================
+   RESULT
+================================ */
 
 .result {
-  margin-top: 15px;
-  padding: 12px;
-  border: 1.5px solid #111;
-  border-radius: 6px;
+  margin-top: 18px;
+
+  padding: 15px;
+
+  border-radius: 10px;
+
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+
+  color: #1f2937;
+
   font-size: 14px;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
-/* Small phones */
 
-@media (max-width: 400px) {
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 500px) {
 
   .page {
-    width: 95%;
-    margin-top: 12px;
+    width: 94%;
+    margin: 20px auto 30px;
+  }
+
+  header {
+    margin-bottom: 18px;
+  }
+
+  header h1 {
+    font-size: 25px;
+  }
+
+  header p {
+    font-size: 13px;
   }
 
   .card {
-    padding: 13px;
+    padding: 17px;
+    border-radius: 13px;
   }
 
-  h1 {
-    font-size: 23px;
+  .card h2 {
+    font-size: 19px;
   }
 
-  h2 {
-    font-size: 18px;
-  }
-
-  header p,
   .instructions {
     font-size: 13px;
+    margin-bottom: 17px;
+  }
+
+  #answers {
+    gap: 10px;
   }
 
   .answer-row {
     grid-template-columns: 105px 1fr;
-    gap: 6px;
+    gap: 8px;
   }
 
   .answer-row label {
@@ -160,13 +260,57 @@ button.secondary {
   }
 
   .answer-row select {
+    padding: 10px 8px;
     font-size: 13px;
-    padding: 8px 6px;
+    border-radius: 8px;
+  }
+
+  .buttons {
+    margin-top: 18px;
   }
 
   button {
+    padding: 10px 14px;
     font-size: 13px;
-    padding: 8px 11px;
+  }
+}
+
+
+/* ================================
+   VERY SMALL PHONES
+================================ */
+
+@media (max-width: 360px) {
+
+  .page {
+    width: 95%;
+  }
+
+  .card {
+    padding: 14px;
+  }
+
+  header h1 {
+    font-size: 22px;
+  }
+
+  .answer-row {
+    grid-template-columns: 100px 1fr;
+    gap: 6px;
+  }
+
+  .answer-row label {
+    font-size: 13px;
+  }
+
+  .answer-row select {
+    font-size: 12px;
+    padding: 9px 6px;
+  }
+
+  button {
+    padding: 9px 11px;
+    font-size: 12px;
   }
 }
 ```
