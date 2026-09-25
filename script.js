@@ -10,17 +10,19 @@ const rooms = [
   "Parents bathroom"
 ];
 
+
 const correctAnswers = {
   A: "Living room",
   B: "Kitchen",
-  C: "Parents bed room",
-  D: "Children bed room 1",
-  E: "Children bed room 2",
-  F: "Guest bathroom",
+  C: "Children bed room 1",
+  D: "Children bed room 2",
+  E: "Parents bed room",
+  F: "Parents bathroom",
   G: "Children bathroom",
   H: "Work room",
-  I: "Parents bathroom"
+  I: "Guest bathroom"
 };
+
 
 const answers = document.getElementById("answers");
 
