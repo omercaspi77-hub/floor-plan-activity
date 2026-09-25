@@ -1,4 +1,4 @@
-```css
+
 * {
   box-sizing: border-box;
 }
@@ -8,29 +8,25 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background: #f5f5f5;
   color: #111;
-  font-size: 14px;
 }
 
 .page {
   width: 94%;
   max-width: 600px;
-  margin: 16px auto 30px;
+  margin: 20px auto 35px;
 }
+
+/* Header */
 
 header {
   text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 h1 {
-  font-size: 26px;
+  font-size: 27px;
   line-height: 1.15;
-  margin: 0 0 7px;
-}
-
-h2 {
-  margin: 0 0 12px;
-  font-size: 19px;
+  margin: 0 0 8px;
 }
 
 header p {
@@ -39,60 +35,62 @@ header p {
   margin: 0;
 }
 
+/* Main card */
+
 .card {
   background: white;
   border: 1.5px solid #111;
-  border-radius: 8px;
-  padding: 15px;
-  margin: 12px 0;
+  border-radius: 9px;
+  padding: 18px;
 }
 
-/* Room bank */
-
-.room-bank {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6px 12px;
+h2 {
+  font-size: 20px;
+  margin: 0 0 8px;
 }
 
-.room-bank span {
-  border-bottom: 1px solid #aaa;
-  padding: 6px 2px;
-  font-size: 13px;
-  line-height: 1.25;
+.instructions {
+  font-size: 14px;
+  margin: 0 0 18px;
+  color: #444;
 }
 
-/* Answers */
+/* Answer form */
 
 #answers {
   display: grid;
-  gap: 9px;
-  margin-bottom: 15px;
+  gap: 11px;
 }
 
 .answer-row {
   display: grid;
-  grid-template-columns: 25px 1fr;
+  grid-template-columns: 90px 1fr;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
 }
 
 .answer-row label {
-  font-weight: 700;
-  font-size: 16px;
+  font-size: 15px;
+  font-weight: bold;
+  white-space: nowrap;
 }
 
 .answer-row select {
   width: 100%;
   min-width: 0;
-  padding: 8px;
+  padding: 9px 8px;
   border: 1px solid #222;
   border-radius: 5px;
   background: white;
+  color: #111;
   font-size: 14px;
 }
 
 /* Buttons */
+
+.buttons {
+  margin-top: 18px;
+}
 
 button {
   border: 1.5px solid #111;
@@ -106,7 +104,7 @@ button {
 }
 
 button:hover {
-  opacity: .82;
+  opacity: 0.8;
 }
 
 button.secondary {
@@ -114,10 +112,10 @@ button.secondary {
   color: #111;
 }
 
-/* Results */
+/* Result */
 
 .result {
-  margin-top: 14px;
+  margin-top: 15px;
   padding: 12px;
   border: 1.5px solid #111;
   border-radius: 6px;
@@ -125,32 +123,17 @@ button.secondary {
   line-height: 1.4;
 }
 
-/* Next activity */
-
-.criteria-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 7px;
-}
-
-.criteria-list span {
-  border: 1px solid #aaa;
-  padding: 7px;
-  font-size: 13px;
-  line-height: 1.25;
-}
-
 /* Small phones */
 
 @media (max-width: 400px) {
+
   .page {
     width: 95%;
     margin-top: 12px;
   }
 
   .card {
-    padding: 12px;
-    margin: 10px 0;
+    padding: 13px;
   }
 
   h1 {
@@ -161,27 +144,28 @@ button.secondary {
     font-size: 18px;
   }
 
-  header p {
+  header p,
+  .instructions {
     font-size: 13px;
   }
 
-  .room-bank {
-    grid-template-columns: 1fr;
-    gap: 3px;
+  .answer-row {
+    grid-template-columns: 80px 1fr;
+    gap: 6px;
   }
 
-  .room-bank span {
+  .answer-row label {
+    font-size: 14px;
+  }
+
+  .answer-row select {
     font-size: 13px;
-    padding: 5px 2px;
-  }
-
-  .criteria-list {
-    grid-template-columns: 1fr;
+    padding: 8px 6px;
   }
 
   button {
-    padding: 8px 12px;
     font-size: 13px;
+    padding: 8px 11px;
   }
 }
 ```
