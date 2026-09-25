@@ -1,4 +1,4 @@
-```javascript
+
 const rooms = [
   "Living room",
   "Kitchen",
