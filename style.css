@@ -1,0 +1,183 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f5f5;
+  color: #111;
+}
+
+.page {
+  width: min(1100px, 94%);
+  margin: 32px auto 60px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+h1 {
+  font-size: clamp(28px, 5vw, 46px);
+  margin: 0 0 10px;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+header p {
+  font-size: 17px;
+  margin: 0;
+}
+
+.card {
+  background: white;
+  border: 2px solid #111;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 20px 0;
+}
+
+.floor-plan-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #aaa;
+  background: white;
+}
+
+svg {
+  display: block;
+  width: 100%;
+  min-width: 760px;
+  height: auto;
+}
+
+.outer,
+.room {
+  fill: white;
+  stroke: #111;
+  stroke-width: 4;
+}
+
+.window {
+  stroke: white;
+  stroke-width: 12;
+}
+
+.room {
+  stroke-width: 3;
+}
+
+.letter {
+  font-size: 52px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+.hint {
+  font-size: 16px;
+  text-anchor: middle;
+  fill: #555;
+}
+
+.small-note {
+  font-size: 18px;
+  text-anchor: middle;
+  fill: #777;
+}
+
+.room-bank {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px 28px;
+}
+
+.room-bank span {
+  border-bottom: 1px solid #aaa;
+  padding: 8px 4px;
+}
+
+#answers {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.answer-row {
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.answer-row label {
+  font-weight: 700;
+  font-size: 19px;
+}
+
+.answer-row select {
+  width: 100%;
+  padding: 11px;
+  border: 1.5px solid #222;
+  border-radius: 6px;
+  background: white;
+  font-size: 16px;
+}
+
+button {
+  border: 2px solid #111;
+  background: #111;
+  color: white;
+  padding: 11px 18px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+button:hover {
+  opacity: .82;
+}
+
+button.secondary {
+  background: white;
+  color: #111;
+}
+
+.result {
+  margin-top: 20px;
+  padding: 18px;
+  border: 2px solid #111;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+.criteria-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.criteria-list span {
+  border: 1px solid #aaa;
+  padding: 10px;
+}
+
+@media (max-width: 700px) {
+  .card {
+    padding: 17px;
+  }
+
+  .room-bank,
+  .criteria-list {
+    grid-template-columns: 1fr;
+  }
+
+  .page {
+    width: 96%;
+  }
+}
