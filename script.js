@@ -1,3 +1,4 @@
+
 const rooms = [
   "Living room",
   "Kitchen",
@@ -10,7 +11,6 @@ const rooms = [
   "Parents bathroom"
 ];
 
-
 const correctAnswers = {
   A: "Living room",
   B: "Kitchen",
@@ -22,7 +22,6 @@ const correctAnswers = {
   H: "Work room",
   I: "Guest bathroom"
 };
-
 
 const answers = document.getElementById("answers");
 
@@ -39,6 +38,7 @@ Object.keys(correctAnswers).forEach(letter => {
   select.name = letter;
   select.required = true;
 
+  // Placeholder
   const placeholder = document.createElement("option");
   placeholder.value = "";
   placeholder.textContent = "Choose a room...";
@@ -46,7 +46,21 @@ Object.keys(correctAnswers).forEach(letter => {
   placeholder.selected = true;
   select.appendChild(placeholder);
 
-  const shuffledRooms = [...rooms].sort(() => Math.random() - 0.5); shuffledRooms.forEach(room => { const option = document.createElement("option"); option.value = room; option.textContent = room; select.appendChild(option); });
+  // Create a NEW shuffled list for each question
+  const shuffledRooms = [...rooms];
+
+  for (let i = shuffledRooms.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledRooms[i], shuffledRooms[j]] = [shuffledRooms[j], shuffledRooms[i]];
+  }
+
+  // Add the shuffled choices
+  shuffledRooms.forEach(room => {
+    const option = document.createElement("option");
+    option.value = room;
+    option.textContent = room;
+    select.appendChild(option);
+  });
 
   row.appendChild(label);
   row.appendChild(select);
@@ -61,20 +75,36 @@ document.getElementById("answerForm").addEventListener("submit", event => {
 
   Object.entries(correctAnswers).forEach(([letter, answer]) => {
     const value = document.getElementById(`answer-${letter}`).value;
-    if (value === answer) score++;
+
+    if (value === answer) {
+      score++;
+    }
   });
 
   const result = document.getElementById("result");
+
   result.hidden = false;
-  result.innerHTML = `<strong>Your score: ${score}/${total}</strong><br>
-    ${score === total ? "Excellent! You identified all the rooms correctly." :
-      "Check the floor plan and try again."}`;
-  result.scrollIntoView({ behavior: "smooth", block: "center" });
+
+  result.innerHTML = `
+    <strong>Your score: ${score}/${total}</strong><br>
+    ${
+      score === total
+        ? "Excellent! You identified all the rooms correctly."
+        : "Check the floor plan and try again."
+    }
+  `;
+
+  result.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
 });
 
 document.getElementById("resetBtn").addEventListener("click", () => {
   Object.keys(correctAnswers).forEach(letter => {
     document.getElementById(`answer-${letter}`).selectedIndex = 0;
   });
+
   document.getElementById("result").hidden = true;
 });
+```
