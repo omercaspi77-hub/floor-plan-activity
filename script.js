@@ -2,7 +2,7 @@ const correctAnswers = {
   A: "Living room",
   B: "Kitchen",
   CD: "Children rooms",
-  E: "Parents suite",
+  E: "Parents bed room",
   FGI: "Bathrooms",
   H: "Home office"
 };
