@@ -46,12 +46,7 @@ Object.keys(correctAnswers).forEach(letter => {
   placeholder.selected = true;
   select.appendChild(placeholder);
 
-  rooms.forEach(room => {
-    const option = document.createElement("option");
-    option.value = room;
-    option.textContent = room;
-    select.appendChild(option);
-  });
+  const shuffledRooms = [...rooms].sort(() => Math.random() - 0.5); shuffledRooms.forEach(room => { const option = document.createElement("option"); option.value = room; option.textContent = room; select.appendChild(option); });
 
   row.appendChild(label);
   row.appendChild(select);
