@@ -9,32 +9,61 @@
 </head>
 
 <body>
+
   <main class="page">
 
     <header>
       <h1>Apartment Floor Plan Activity</h1>
-      <p>Study the floor plan and identify each room.</p>
+      <p>Study the floor plan and identify each area.</p>
     </header>
 
     <section class="card">
-      <h2>Your Answers</h2>
+      <h2>Identify the Areas</h2>
+
+      <p class="instructions">
+        Choose the correct area for each letter on the floor plan.
+      </p>
 
       <form id="answerForm">
+
         <div id="answers"></div>
 
-        <button type="submit">Submit Answers</button>
-        <button type="button" id="resetBtn" class="secondary">Reset</button>
+        <div class="buttons">
+          <button type="submit">Submit Answers</button>
+          <button type="button" id="resetBtn" class="secondary">
+            Reset
+          </button>
+        </div>
+
       </form>
 
       <div id="result" class="result" hidden></div>
     </section>
 
-   
+    <section class="card criteria">
 
-     
+      <h2>Next Activity</h2>
+
+      <p>
+        After identifying the areas, think about which architectural
+        characteristics fit each one:
+      </p>
+
+      <div class="criteria-list">
+        <span>Ceiling height</span>
+        <span>Natural light</span>
+        <span>Window size</span>
+        <span>Open vs. enclosed space</span>
+        <span>Natural elements</span>
+        <span>Acoustics / noise</span>
+      </div>
+
+    </section>
+
   </main>
 
   <script src="script.js"></script>
+
 </body>
 </html>
 ```
